@@ -1,5 +1,11 @@
+//#include <time.h>
+
 int button = 8;
 int led = 13;
+bool bandera = false;
+unsigned long t_before = 0;
+unsigned long t_now;
+int t_espera = 5000;
 
 void setup() {
   // put your setup code here, to run once:
@@ -19,16 +25,33 @@ void loop() {
       digitalWrite(led, LOW);
     }
   }
+ 
   int buttonState = digitalRead(button);
-  Serial.println(buttonState);
-  if ( buttonState == LOW){
-
+  if ( buttonState == HIGH){
     delay(100);
-    
-  if ( buttonState == LOW){
-    
+  if ( buttonState == HIGH){
     Serial.println("Button is pressed");
     delay(500);
-  }
-  }
+    if (bandera == true){
+      t_now = millis();
+      if (t_now - t_before < t_espera){
+        bandera = false;
+        digitalWrite(led, LOW);
+        Serial.println("LED is OFF");
+
+        t_before = 0;
+      }else{
+        bandera = true;
+        digitalWrite(led, HIGH);
+        t_before = millis();
+      }
+    }else{
+      bandera = true;
+      digitalWrite(led, HIGH);
+      Serial.println("LED is ON");
+
+    }
+    }
+   }
+  
  }
