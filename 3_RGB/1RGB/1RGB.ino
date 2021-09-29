@@ -3,16 +3,16 @@ SoftwareSerial BT(10,11);    // Definimos los pines RX y TX del Arduino conectad
 #include <ArduinoJson.h>
 
 
-#define pinR 4 //Rojo
-#define pinG 5 //Verde
-#define pinB 6 //Azul 
+#define pinR 5 //Rojo
+#define pinG 6 //Verde
+#define pinB 7 //Azul 
 
 String readString;
 
 
-int red;
-int green;
-int blue;
+int red=0;
+int green=0;
+int blue=0;
 
 
 
@@ -21,6 +21,9 @@ void setup() {
   Serial.begin(9600); //Inicializa serial
   BT.begin(9600);  // Inicializa Bluetooth 
 
+  pinMode(pinR,OUTPUT);
+  pinMode(pinG,OUTPUT);
+  pinMode(pinB,OUTPUT);
 }
 
 void loop() {
