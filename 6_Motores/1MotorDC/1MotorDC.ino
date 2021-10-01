@@ -25,6 +25,7 @@ void loop() {
   // put your main code here, to run repeatedly:
   statusRight = digitalRead(BUTTONRIGHT);
   statusLeft = digitalRead(BUTTONLEFT);
+  Serial.println(statusRight);
   if(statusLeft == HIGH){
     if(speedMotor <= 0){
       speedMotor = 0;
