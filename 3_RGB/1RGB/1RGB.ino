@@ -1,3 +1,4 @@
+
 #include <SoftwareSerial.h>   // Incluimos la librería  SoftwareSerial  
 SoftwareSerial BT(10,11);    // Definimos los pines RX y TX del Arduino conectados al Bluetooth
 #include <ArduinoJson.h>

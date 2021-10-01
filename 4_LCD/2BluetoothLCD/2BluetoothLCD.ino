@@ -104,6 +104,7 @@ void loop() {
         frase1 = "LUCES R: "+ (String)red;
         frase2 ="G: "+ (String)green +" B: "+ (String)blue;
 
+
         
         isResult=1;
 
